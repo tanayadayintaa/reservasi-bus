@@ -1,59 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root{
+  --primary: #0078d7;
+  --bg: #f6f9fc;
+  --card-bg: #ffffff;
+}
 body {
   font-family: "Poppins", sans-serif;
-  background: #eef2f7;
+  background: var(--bg);
   margin: 0;
 }
-
 header {
-  background: #0078d7;
+  background: linear-gradient(90deg, var(--primary), #005fa3);
   color: #fff;
   text-align: center;
-  padding: 1rem;
+  padding: 1.2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+.card { border-radius: 12px; }
+.table tbody tr:hover { background: rgba(0,0,0,0.03); }
+.btn-primary { background: var(--primary); border: none; }
+.btn-primary:hover { filter: brightness(.9); }
 
-main {
-  width: 90%;
-  max-width: 900px;
-  margin: 20px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
 
-h2 {
-  color: #0078d7;
-  border-bottom: 2px solid #0078d7;
-  padding-bottom: 5px;
-}
-
-form {
-  margin-bottom: 20px;
-}
-
-input, button {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-}
-
-button {
-  background: #0078d7;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #005fa3;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}

@@ -1,22 +1,20 @@
 <?php
-class Database {
-    private $host = "localhost";
-    private $user = "root";
-    private $pass = "";
-    private $dbname = "reservasi_bus";
-    protected $conn;
+$host = 'localhost';
+$db   = 'db_bus';
+$user = 'root';
+$pass = '';
+$charset = 'utf8mb4';
 
-    public function __construct() {
-        $this->connect();
-    }
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
-    private function connect() {
-        try {
-            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}", $this->user, $this->pass);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            die("Koneksi gagal: " . $e->getMessage());
-        }
-    }
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-?>
+
+
